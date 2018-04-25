@@ -39,4 +39,14 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # LEON
+  # enable logging for Testing
+  # config.logger = Logger.new(STDOUT)
+  config.logger = Logger.new( "log/test.log")
+  config.log_level = :INFO
+  config.logger.formatter = proc do |severity, time, progname, msg|
+    %Q|[#{time}],#{severity}, #{msg}\n|
+  end
+
 end
